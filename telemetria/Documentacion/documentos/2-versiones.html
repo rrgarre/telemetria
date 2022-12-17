@@ -1,0 +1,299 @@
+<h3>Version 001:</h3>
+<p>Se adapta el sistema de usuarios del blog.</p>
+<p>Desde login, registro y logOut.</p>
+<p>Hasta las redirecciones pertinentes y la transformacion de la navbar
+segun estemos o no Logueados.</p>
+<hr>
+<h3>Version 002:</h3>
+<p>En el index, en la configuracion de URL -> .../telemetria</p>
+<p>Se comprueba si existe Sesion de usuario</p>
+<p>Si no la hay se abre la pagina de Login directamente</p>
+<br>
+<p>Tambien se termina de implementar la opcion de "recordar contraseña"</p>
+<p>Para enviar emails cuando estemos en el
+  <a href="documentos/Considerarciones-Host-Remoto.html" class="enlace-contenido">
+    servidor remoto
+  </a>,
+  hay que descomentar las lineas de codigo pertinentes
+en el fichero script/generar-url-secreta.php</p>
+<p>Y poner a false la variable email-enviado</p>
+<hr>
+<h3>Version 003:</h3>
+<p>Comenzamos con la Interfaz de usuario.</p>
+<p>-Tenemos 2 boton dropdown para seleccionar zona y deposito.</p>
+<p>-Ambos se alimentarán de la BBDD para listar el contenido interior.</p>
+<p>-Al seleccionar hacemos que el nombre del boton adquiera el valor de la selección.</p>
+<p>-El selector de depositos solo aparecerá tras seleccionar una zona.</p>
+<p>Para los indicadores de consignas usamos los nuevos input del type="range"
+que nos proporciona HTML5.</p>
+<p>-Para mostrar el dato conforme vamos arrastrando el cursor, debemos servirnos
+de JS puro.</p>
+<p>-Para mostrar el dato al cargar la página y para obtenerlo una vez se ha terminado
+de desplazar el cursor, si podemos ayudarnos de JQuery.</p>
+<hr>
+<h3>Version 004:</h3>
+<p>Ponemos un boton para mostrar y activar, u ocultar y anular las
+consignas por slide.</p>
+<hr>
+<h3>version 005:</h3>
+<p>AJAX tendremos cuidado con la forma de llamar al script php
+al que realizamos la consulta.
+Parece que carga desde la raiz del proyecto la url.</p>
+<p>Hacemos getJSON al script php ajax/instalaciones-por-zona
+Este se encarga de traer de la BBDD las instalaciones y retornarlas
+en forma JSON.</p>
+<p>Ahora llenamos el listado desplegable del boton de Instalaciones.</p>
+<hr>
+<h3>version 006:</h3>
+<p>Cambiamos el texto del boton de seleccion de instalacion cuando
+escogemos deposito.</p>
+<p>Volvemos a colocar el texto original en el el boton de instalacion
+si cambiamos la zona seleccionada.</p>
+<p>Creamos una funcion en el script de JS para enviar parametros
+al servidor y que este haga la Busqueda avanzada.</p>
+<p>Esta funcion recopila los valores de ZONA, INSTALACION, Si HAY consignas, CONSIGNA MAXIMO y CONSIGNA MINIMO.</p>
+<p>Esta funcion siempre envia todos estos datos, y es tarea del script
+php del server determinar si los valores son introducido o por defecto, y asi personalizar
+la sentencia sql con mas o menos parametros.</p>
+<p>Esta funcion será llamada al seleccionar Zona, seleccionar Instalacion o SOLTAR cualquier slide de consigna</p>
+<hr>
+<h3>version 007:</h3>
+<p>Añadimos en el script JS que la busqueda se realice tambien al cargar
+la pagina, y al pulsar el boton de mostrar/ocultar consignas</p>
+<p>Añadimos uns constantes en resultado-home, que es donde recibimos
+los parametros de busqueda por ajax.</p>
+<p>Estas constantes contienen los valores por defecto de los parametros de busqueda.</p>
+<p>Asi podremos personalizar la llamada al RepositorioTelemetria con unos u otros
+parametros y el metodo sobrecargado.</p>
+<p>Tambien cargamos el AC0X según hayamos cargado un analizador del mismo
+deposito o no (autoincrementar)</p>
+<p>Tambien distinguimos el caso -10ppm para añadir una clase al parrafo
+y darle estilo de alerta desde el fichero css externo.</p>
+<hr>
+<h3>version 008:</h3>
+<p>Creamos el fichero de texto con los codigos (codigos del Contr.Centr)
+de los depositos que tenemos en comun en la empresa.</p>
+<p>Modificamos la columna datos de la BBDD con la columna servicio.</p>
+<p>Cuando estemos insertando los datos en la BBDD desde el script de barrido,
+pondremos a 1 o a 0 el campo servicio dependiendo de si el codigo
+del deposito se encuentra en la lista.</p>
+<p>Aqui hemos modificado:</p>
+<p>la rutina de carga</p>
+<p>el repositorio Telemetria cuando inserta el deposito</p>
+<hr>
+<h3>version 009:</h3>
+<p>El método busquedaAvanzada del repositorioTelemetria no hemos
+podido sobrecargarlo ambiando la configuracion de los parametros.</p>
+<p>Pero creamos varios metodos diferentes de busqueda avanzada y los Llamamos
+desde resultadoHome.php segun los parametros uq tenemos modificados. </p>
+<br>
+<p>Añadimos el boton (oculto en un principio) de Ocultar datos "Sin Conexion"</p>
+<p>Lo hacemos aparecer una vez se ha cargado la tabla de resultados por el
+metodo de AJAX .load, usando el tercer argumento de dicha funcion reservado
+para llamar a una funcion (anonima en nuestro caso) donde hacemos aparecer dicho boton y
+ademas le damos el evento CLICK con on().</p>
+<p>Con esto evitamos que se pulse y cambie sin haber tabla a la que afectar</p>
+<p>Este boton lo ponemos a la escucha de CLICK tras cargar tabla y lo paramos
+con off() antes de llamar al metodo AJAX de cargar resultados. </p>
+<p>La funcion que este boton llamara con su evento CLICK localiza los ·tr· que
+  contienen un parrafo con el mensaje "Sin Conexion"</p>
+<p>Y Ocultamos/mostramos todo el ·tr·</p>
+<hr>
+<h3>version 010:</h3>
+<p>Modificamos apariencia:</p>
+<p>Primero detectamos cuando la pagina esta en modo movil o GRANDE.</p>
+<p>Esto lo conseguimos comprobando si el boton de la navbar está oculto o no.</p>
+<p>(Deberiamos mirar en que se fija este botón para ocultarse en vez de dar tantas vueltas)</p>
+<p>Esta comprobacion debemos hacerla cada vez que la pantalla se redimensiona.</p>
+<p>usamos $(window).resize(function(){})</p>
+<p>Llamamo a una funcion. Y de momento simplemente comprobamos el estado del atributo css del boton</p>
+<p>Segun este o no oculto, fijamos la consola de filtros con position: fixed; en el css.</p>
+<p>La navbar le damos una id a la etiqueta nav y tambien la fijamos de css, Pero esta independientemente del tamaño de ventana.</p>
+<p>Cambiamos la apariencia del texto Sin Conexion y del boton que los muestra/oculta.
+Para que sea más facil de asociar la funcionalidad.</p>
+<p>Y fijamos el fondo de pantalla.</p>
+<hr>
+<h3>version 011: alertas form modal</h3>
+<p>Usamos la tecnologia modal para crear un formulario para alertas oculto</p>
+<p>Lo creamos en una plantilla, y como es oculto lo incluimos al final de la pagina</p>
+<p>Incluso despues de cerrar el html con el doc de cierre.</p>
+<p>plantillas / crear-alerta.php</p>
+<p>Vemos que el contenedor más externo lo ocultamos y</p>
+<p>Y le damos comportamiento modal con la clase "modal"</p>
+<p>Y con la clase "fade" le damos efecto</p>
+<p>Despues, desde JQUERY, usando el metodo .modal("show") podemos mostrar el formulario</p>
+<p>Antes de mostrarlo le damos valores a los campos que ya deben tener contenido</p>
+<p>La clave está en que los botones de alerta de cada fila (de cada dato de cloro)</p>
+<p>En su contenido incluimos campos ocultos con la info que necesitaremos pasar al modal</p>
+<p>Estos datos los rescataremos una vez suceda el evento de click con el objeto event.target y
+buscando los campos con .find()</p>
+<p>O en caso de usar una funcion anonima con el onjeto $(this) y usando tambien .find()</p>
+<hr>
+<h3>version 012: estilo formulario modal</h3>
+<p>Dejamos preparado el modal en estilo</p>
+<hr>
+<h3>version 013: botones dropdown del form modal</h3>
+<p>Se ñaden los botones, con la funcionalidad de los del filtro externo</p>
+<hr>
+<h3>version 014: </h3>
+<p>Conseguimos realizar la precarga de los botones de seleccion de zona
+y deposito del formulario modal segun los datos del boton que origino
+la aparición del formulario.</p>
+<p>Distinguiendo entre boton nueva alerta desde 0, o un boton de crear alerta
+de una de las filas de resultados.</p>
+<hr>
+<h3>version 015: </h3>
+<p>Añadimos sliders para las consignas del modal</p>
+<p>Hacemos que se inicialicen por defecto al cargar el form</p>
+<p>Ponemos boton de notificacion de email</p>
+<p>Hacemo que se inicialice por defecto a descativado al abrir form</p>
+<p>Añadimos botones de aceptar y cancelar sin funcion aun</p>
+<br>
+<p>Mas adelante, tras inicializar por defecto, preguntaremos a la BBDD
+Si existe una alerta cofigurada con anterioridad para este código de depósito.</p>
+<p>En caso afirmativo, tras la carga por defecto, reconfiguraremos a los valores
+guardados.</p>
+<hr>
+<h3>version 016: Icono web</h3>
+<p>Cogemos una imagen para icono y la metemos en la web que crea el icono</p>
+<p>Nos da una carpeta con un monton de formatos de la imagen para diferentes tamaños y dispositivos.
+Ademas tiene otros ficheros.</p>
+<p>Despues incluimos el los meta y links en la cabecera.</p>
+<p>Nosotros lo hacemos con una nueva plantilla incluida en la apertura-documento</p>
+<hr>
+<h3>version 017: COOKIES inicio sesion</h3>
+<p>Creamos la siguiente version del proyecto base GestionUsuarios
+que usamos como inicio para este proyecto.
+En esta nueva version usamos COOKIES para memorizar datos de sesion
+de forma permanente y los usamos para iniciar sesion
+automaticamente cuando existen cookies memorizadas pero se ha perdido
+los datos de SESSION</p>
+<hr>
+<h3>vesion 018: MODAL FORM</h3>
+<p>Realizamos los cambios necesarios para que el boton de nstalacion
+guarde en un p oculto el codigo completo</p>
+<p>Esto ha sido necesario para poder enviar el codigo del deposito para las ALERTAS</p>
+<p>No podemos usar el dato_id en la tabla que usamos para guardar
+las alertas, ya que cada dato nos va a cambiar cada vez que actualicemos la BBDD</p>
+<p>Esto es un error de diseño de la BBDD desde el principio. Tener en cuenta en el futuro</p>
+<br>
+<p>Ya conseguimos enviar los datos del form modal al script PHP
+que se encargará de insertar/actualizar alertas</p>
+<p>Tambien usamos el user_id para comprobar si la alerta para ese deposito, existe
+para el usuario actual.</p>
+<p>Hemos tenido que obtener la ID de usuario haciendo un campo oculto en el modal con la id_user de SESSION
+(No hemos podido acceder a SESSION desde el script)</p>
+<p>Simulando una entrada en la tabla favoritos insertandola desde
+phpMYadmin, ya somos capace de reconocer si la alerta existe o no para el usuario actual</p>
+<p>Dependiendo de esto, insertaremos o actualizaremos la Alerta en la BBDD.</p>
+<hr>
+<h3>version 019: Boton de alertas editar/nueva</h3>
+<p>Para dibujar el boton de alerta de cada dato de cloro segun ya esta definida
+la alaerta o vaya a ser una nueva.</p>
+<p>Para no tener que realizar llamadas a la BBDD cada vez que vayamos a dibujar una fila de la tala de resultados
+para verificar si existe alerta para ese dato, optamos por traernos TODAS las alertas configuradas por el usuario
+cada vez que hay que redibujar la tabla de resultados.</p>
+<p>Esto lo hacemos desde la plantilla php resultado-home, que es la que cargamos con AJAX
+cada vez que solicitamos resultados.</p>
+
+<hr>
+<h3>version 020: Precarga de EDITAR ALERTAS en el form modal</h3>
+<p>Debemos conocer los valores de las CONSIGNAS y de NOTIFICAR EMAIL</p>
+<p>Para ello vamos a introducir otros inputs hidden al lado del boton de la alerta con los valores
+de maximo minimo y notificacion si la alerta ya estaba establecida.</p>
+<p>Esto ya lo haciamos para la zona y deposito para poder pasarla al modal</p>
+<p>A continuacion, en el script JS, cuando ponemos los botones de alerta nueva y editar alerta a la escucucha del click</p>
+<p>Vamos y averiguar si venimos de pulsar el boton nueva o editar</p>
+<p>Tras esto, si venimos de nueva lo hacemos como antes.</p>
+<p>Valoros por defecto para sliders y notificar</p>
+<p>Si venimos de pulsar editar, estos campos los llenamos con los datos de los inputs ocultos creados en el paso anterior</p>
+
+<hr>
+<h3>version 021: Agregar / Editar alerta en BBDD</h3>
+<p>Ya tenmos los datos en el script</p>
+<p>ajax/modificar-alerta.php</p>
+<p>Y ya comprobamos si la alerta existe para este usuario y deposito</p>
+<p>Es mejor consultar esto y no fiarnos de que vengamos de pulsar el boton del lapiz de edicion o el de nueva alerta.
+Asi nos aseguramos de tener siempre consistencia en los datos.</p>
+<p>Creamos la sentencia para añadir nueva alerta</p>
+<p>Creamos la sentencia para modificar los valores de alerta existente (editar)</p>
+<p>Tambien actualizamos la tabla favoritos para añadir el campo semaforo-notificacion</p>
+<p>Con este valor sabremos cuando si una alerta ha sobrepasado las consignas, debemos notificar o ya lo hemos hecho con anterioridad</p>
+<p>Si el valor esta fuera de consigna durante unas cuantas acualizaciones de la telemetria, solo notificaremos cuando haga la transicion de correcto a incorrecto</p>
+
+<hr>
+<h3>version 022: Borrar alerta</h3>
+<p>Antes de nada, como hemos usado enlaces para los botones de editar y borrar, la pagina hace una carga y nos lleva a la parte superior de resultados al pulsarlos.</p>
+<p>Vamos a cortar el funcionamiento del link</p>
+<p>event.preventDefault();</p>
+<p>Ahora vamos a poner a la escucha los botones de borrar alerta</p>
+<p>Tambien desde realizarBusquedaAvanzada en el script JS</p>
+<p>Llamamos con AJAX al script php que borra la alerta</p>
+
+<hr>
+<h3>version 023: Creamos el modal para el contenido detalle del deposito</h3>
+
+<hr>
+<h3>version 024: Semaforo de alertas y empieza vista Alertas</h3>
+<p>Comenzamos añadiendo el campo semaforo a la tabla favoritos(alertas)</p>
+<p>Si la alerta sobrepasa un valor y tiene que notificar por mail,
+notifica y pone el semaforo a 1</p>
+<p>De esta forma conseguimos que no se envien emails con cada refresco
+de la BBDD, si no sólo un email por cada periodo ininterrumpido en el que
+existe una alerta fuera de rango.</p>
+<p>En la funcion insertar del RepositorioFavoritos, añadimos el campo semaforo
+y un 0 en Values, aunque lo queremos a 0 en la creacion y no habría hecho falta
+tocar nada.</p>
+<br>
+<p>Ahora empezamos la vista de alertas</p>
+<p>Creamos el enlace con un badge con el numero de alertas activas</p>
+<p>Creamos la redireccion</p>
+<p>Hacemos en el Index, que si estamos logeados y ademas existen alertas
+para el usuario (aunque no esten saltadas) que le redirija a la
+pantalla de alertas</p>
+
+<hr>
+<h3>version 025: Eliminar duplicados de resultados mientras la BBDD se actualiza</h3>
+<p>Quitamos el más antiguo</p>
+<p>Esto lo hacemos recorriendo el resultado de la sentencia sql, e insertando
+todo de nuevo en un nuevo array cuyos indices serán los codigos de deposito.</p>
+Cuando nos encontremos un duplicado, este será mas moderno, y en lugar de crear una nueva referencia en el array
+de resultados procesados, machacará los datos del dato anterior.
+<p>Esto lo hacemos una vez hemos comprobado que tenemos resultados</p>
+<p>if(!empty($resultado)){
+  $resultadoProcesado = array();
+  foreach ($resultado as $fila){
+    $resultadoProcesado[$fila['codigo']] = $fila;
+  }
+  return $resultadoProcesado;
+}</p>
+
+<hr>
+<h3>version 026: icono con numero alertas</h3>
+<p>Hacemos la funcion para obtener las alertas que han superado los limites.</p>
+
+<hr>
+<h3>version 027: Vista alertas</h3>
+<p>Copiamos toda la vista de home en la vista alertas</p>
+<p>Ahora ocultamos el panel de filtro</p>
+<p>dejamos fuera los botones de ocultar desconectados y nueva alerta</p>
+<p>Y en el boton de zona ponemos otra palabra, por ejemplo alertas</p>
+<p>Asi, cuando pidamos la carga de resultados desde la plantilla resultados-home
+Añadimos un nuevo if anidado al comienzo para detectar este valor de zona, y hacemos label
+busqueda de los datos relacionados con alertas</p>
+
+<hr>
+<h3>version 028: Icono de alertas por AJAX</h3>
+<p></p>
+
+<hr>
+<h3>version 029: Alarmas rojas</h3>
+
+<hr>
+<h3>version 030: Rutina emails</h3>
+<p>Creamos el nuevo script rutinaAlarmas.php</p>
+<p>Repasamos las alertas que requieren ser notificadas y las notificamos.</p>
+<p>Ponemos el semaforo a 1 de las que notifiquemos</p>
+<p></p>
+<p>En un segundo repaso, las alertas con el semaforo a 1</p>
+<p>Que no estén fuera de consigna, se les restablece el semaforo</p>

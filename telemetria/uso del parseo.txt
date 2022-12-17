@@ -1,0 +1,30 @@
+-capturamos una web en una variable:
+
+$deposito001 = file_get_contents("https://telemetria.mct.es/CC/DP004.html");
+
+=====================================================================
+-aplicamos una expresion regular para obtener las coincidencias
+
+BASICA -> preg_match('|(.*?)|is', $deposito001, $cap))
+
+if(preg_match('|CL.*?</b></td><td>(.*?) ppm</td>|is', $deposito001, $cap)){
+      echo $cap[1];
+    }
+
+siendo el contenido entre ' ' el patrón que buscamos, y (.*?) lo que
+capturamos si coincide. Que se guardará den $cap
+
+
+.*? es cualquier cosa
+
+tambien lo usamos entre parentesis para capturar en $cap
+
+===================================================================
+
+Si queremos coger varios usamos
+preg_match_all
+
+if(preg_match_all('|CL.*?</b></td><td>(.*?) ppm</td>|is', $contenido_pagina, $cap)){
+      print_r($cap);
+
+print_r nos imprime la captura, en la cual se aprecia como coger los datos.

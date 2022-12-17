@@ -1,0 +1,276 @@
+body{
+  /*position: fixed;*/
+  padding-top: 3em;
+  /*background-image: url("../img/background.jpg");*/
+  /*background-image: linear-gradient(rgb(160, 190, 250), rgb(60, 90, 150) 85%);*/
+  background-image: url("../img/bg2.jpg");
+  background-attachment: fixed;
+}
+#selector-zona-modal-error{
+  display: none;
+}
+#dataModal, #detalleModal{
+  margin-top: 7em;
+}
+
+#barra-navegacion{
+  width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+}
+#slide-button-div-alertas{
+  position: fixed;
+   z-index: 3;
+   /*background-color: grey;*/
+   /*width: 100%;*/
+}
+.resultado-alertas{
+  position: absolute;
+  top: 40px;
+}
+.consola-filtros-estaticos{
+  width: 30%;
+	left: 20;
+	top: 30;
+	position: fixed;
+}
+
+/*SELECTORES*/
+#selector-zona ul, #selector-zona-modal ul{
+  border-color: #46b8da;
+  background-color: #5bc0de;
+}
+#selector-deposito ul, #selector-deposito-modal ul{
+  border-color: #46b8da;
+  background-color: #5bc0de;
+}
+#selector-deposito, #selector-deposito-modal{
+  display: none;
+}
+#alertas-boton{
+  background-color: #f2dede;
+  color: DarkRed;;
+  border-color: #d9534f;
+  display: none;
+}
+#alertas-boton:hover{
+  background-color: #e1cdcd;
+}
+/*#selector button, #consigna button{
+  margin: 0.6em;
+  color: red;
+}*/
+
+#alerta-editar{
+  color: #5bc0de;
+}
+#alerta-borrar{
+  color: DarkRed;
+}
+#alerta-editar:hover, #alerta-borrar:hover{
+  color: black;
+}
+
+.panel-body button{
+  margin: 0.5em;
+  /*color: red;*/
+}
+
+.boton-alerta{
+  /*padding: 0.4em;*/
+}
+.boton-pie-modal{
+  margin: inherit !important;
+  height: 100%;
+  width: 100%;
+}
+.modal-footer{
+  /*background-color: #f5eddf;*/
+}
+#flechas-rango{
+  /*color: red;*/
+}
+/*///////////////////////////////*/
+/*SLIDERS*/
+.slidecontainer {
+    display: none;
+    width: 100%; /* Width of the outside container */
+    margin: 0.6em;
+}
+.slidecontainer-modal {
+    /*display: none;*/
+    width: 100%; /* Width of the outside container */
+    margin: 0.6em;
+}
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 15px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+/* The slider handle (use webkit (Chrome, Opera, Safari, Edge) and moz (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    border-radius: 12px;
+    outline: none;
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+.slider::-moz-range-thumb {
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+/*/////////////////////////////////////*/
+.container2{
+  /*padding: 0.2em !important;*/
+  margin: 2em;
+}
+
+
+.jumbotron{
+  background-color: rgb(66, 155, 244);
+  color: white;
+}
+
+.badge{
+  background-color:  red;
+}
+
+.panel-heading{
+  background-color: rgb(66, 155, 244) !important;
+  color: white !important;
+}
+
+.panel-body{
+  background-color: floralWhite;
+  color: #5f3a3a;
+}
+
+.navbar{
+  background-color: #2b2b2b !important;
+}
+
+.boton-busqueda{
+  background-color: floralWhite !important;
+}
+
+.navbar-brand{
+  font-size: 1.1em;
+}
+
+.navbar-brand:link, .navbar-brand:visited{
+  color: rgb(66, 155, 244) !important;
+}
+.navbar-brand:hover, .navbar-brand:active{
+  color: white !important;
+}
+#fecha-actualizacion{
+  /*margin: auto;*/
+  padding: 0.7em;
+  color: red;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+li a:link, li a:visited{
+  color: white !important;
+}
+li a:hover, li a:active{
+  color: rgb(66, 155, 244) !important;
+}
+
+#tabla-home{
+  font-weight: bold;
+}
+tbody{
+  background-color: white;
+  color: rgb(0, 155, 244);
+}
+/*para cambiar el fondo de las rayas de la tabla*/
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th{
+  background-color: floralWhite;
+  color: rgb(46, 135, 224);
+  /*font-weight: bold;*/
+}
+/*para quitar las rayas divisorias entra filas*/
+.table-striped>tbody>tr>td{
+  /*border: 1px solid red;*/
+  border: none;
+}
+/*para quitar el borde entre thead y tbody*/
+.table-striped>thead>tr>th{
+  border: none;
+}
+
+thead{
+  /*background-color: rgb(66, 155, 244);*/
+  color: white;
+}
+
+p.sin-conexion{
+  /*color: #d9534f;*/
+  /*background-color: #d9534f;*/
+  border: 1px solid;
+  color: DarkRed;
+  background-color: #f2dede;
+  /*border-color: #ebccd1;*/
+  border-color: #d9534f;
+  border-radius: 4px;
+}
+
+.fila-alarma td{
+  background-color: #f2dede !important;
+  color: red !important;
+  /*border: 3px;*/
+}
+
+.fila-turbi-alarma td{
+  /* background-color: #FECA8E !important; */
+  /* background-color: rgb(123, 199, 144) !important; */
+  background-color: rgb(153, 201, 166) !important;
+  /* background-color: rgb(199, 178, 137) !important; */
+  /* background-color: rgb(50, 168, 82) !important; */
+  color: red !important;
+  /*border: 3px;*/
+}
+
+.fila-turbi td{
+  background-color: #E3FEEB !important;
+  color: 46, 135, 224 !important;
+  /*border: 3px;*/
+}
+
+#login-container{
+  margin-top: 3em;
+}
+#fila-separadora-depositos{
+    
+}
+
+#fila-separadora-depositos td{
+  /* color: red;
+  border: 1em;
+  border-color: red; */
+  /* background-color: rgb(90, 117, 115) !important; */
+  background-color: rgb(89, 124, 171) !important;
+  /* background-color: rgb(90, 117, 115) !important; */
+  /* background-color: rgb(90, 117, 115) !important; */
+  /* background-color: rgb(90, 117, 115) !important; */
+background-image: url("../img/bg2.jpg") !important;
+  background-attachment: fixed;
+  
+}

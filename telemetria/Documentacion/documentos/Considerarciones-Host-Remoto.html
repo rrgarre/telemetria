@@ -1,0 +1,20 @@
+<p>Creamos una nueva base de datos en el server remoto</p>
+
+<p>Despues, con el fichero .sql vamos mandando los comandos
+de create table uno por uno a la consola sql de phpMyAdmin</p>
+<p>Esta nueva BBDD tiene usuario, nombre etc. facilitados
+por el HOST</p>
+<hr>
+
+<p>Esos nuevos datos los ponemos en el fichero app/config.inc.php
+de nuestro proyecto, comentando los anteriores que usamos en local.</p>
+<p>Tambien cambiamos la ruta de SERVIDOR con la direccion del host
+remoto.
+<p>Ya que el resto de rutas dependen de ella.</p></p>
+<hr>
+<p>Para el tema de envio de emails, por ejemplo para la recuperacion
+de claves de usuario.</p>
+<p>Debemos descomentar las lineas que se encargan del envio y poner
+la variable de email-enviado a false, para que una vez completado el proceso
+de envio, se la indicadora de si se envio o falló.</p>
+<p>Esto esta en: script/generar-url-secreta.php</p>

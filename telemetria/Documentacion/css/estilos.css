@@ -1,0 +1,228 @@
+#titulo{
+  font-size: bold;
+  color: #225;
+  align-content: center;
+}
+body{
+  background-color: #ddf;
+}
+
+#zona-lectura{
+  overflow: auto;
+  overflow-x: hidden;
+}
+#zona-lectura-interior{
+  /*height: 923px;*/
+}
+
+#zona-indice a{
+  font-weight: bold;
+}
+
+#zona-indice a.titulo-seleccionado{
+  background-color: rgb(66, 155, 244);
+  background-size: cover;
+  padding: 0.2em;
+  color: white;
+}
+
+p.titulo{
+  display: none;
+}
+
+.jumbotron{
+  background-color: rgb(66, 155, 244);
+  /*background-image: url(../img/home-bg.jpg);*/
+  background-size: cover;
+  color: white;
+  padding: 0.6em;
+}
+
+.panel-heading{
+  /*background-color: rgb(66, 155, 244) !important;*/
+  background-image: url(../img/about-bg.jpg);
+  background-size: cover;
+  color: white !important;
+}
+
+.panel-body{
+  background-color: floralWhite;
+  color: #5f3a3a;
+}
+
+.navbar{
+  background-color: #2b2b2b !important;
+}
+
+.boton-busqueda{
+  background-color: floralWhite !important;
+}
+
+.navbar-brand:link, .navbar-brand:visited{
+  color: rgb(66, 155, 244) !important;
+}
+.navbar-brand:hover, .navbar-brand:active{
+  color: white !important;
+}
+
+li a:link, li a:visited{
+  color: white !important;
+}
+li a:hover, li a:active{
+  color: rgb(66, 155, 244) !important;
+}
+
+.dropdown-menu{
+  background-color: #2b2b2b;
+}
+
+.open > a {
+  background-color: #2b2b2b !important;
+}
+
+.btn-primary{
+  background-color: rgb(66, 155, 244) !important;
+  border: none;
+}
+
+.btn-primary:hover{
+  background-color: #2b2b2b !important;
+}
+
+.contenido-articulo{
+  background-color: white;
+  padding: 2em;
+}
+
+.sidebar{
+  background-color: #2b2b2b !important;
+}
+
+.sidebar, .g-g-elemento{
+  /*con estas 2 lineas movemos el contenedor hacia arriba 5 puestos
+  lo cual hace q se superponga a la navbar*/
+  /*margin-top: -5em;*/
+  /*con esta linea hacemos q el contenido dentro del contenedor, coja
+  un margen superior de 5, entonces tenemos el fondo solapado con la navbar
+  y el contenido visible*/
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.g-g-elemento{
+  color: white !important;
+}
+
+p.test{
+  background-color: floralWhite !important;
+  padding: 1em;
+}
+.test{
+  background-color: floralWhite !important;
+}
+
+#g-g-entradas{
+  /*background-image: url(../img/about-bg.jpg);*/
+  background-color: #b8a49b;
+}
+
+#g-g-comentarios{
+  /*background-image: url(../img/about-bg.jpg);*/
+  background-color: #5a4c3f;
+}
+
+#g-g-favoritos{
+  /*background-image: url(../img/about-bg.jpg);*/
+  background-color: #a27264;
+}
+
+.g-g-elemento:hover{
+  background-color: #2b2b2b !important;
+  color: rgb(66, 155, 244) !important;
+}
+
+/*sub-GESTOR ENTRADAS**********************************************/
+.parte-gestor-entradas{
+  background-color: rgb(66, 155, 244);
+  color: white;
+}
+/*para cambiar el fondo de las rayas de la tabla*/
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th{
+  background-color: deepskyblue;
+}
+/*para quitar las rayas divisorias entra filas*/
+.table-striped>tbody>tr>td{
+  /*border: 1px solid red;*/
+  border: none;
+}
+/*para quitar el borde entre thead y tbody*/
+.table-striped>thead>tr>th{
+  border: none;
+}
+/*mas distancia entre cabecera de tabla y contenidos*/
+tbody:before{
+  content: "-";
+  display: block;
+  line-height: 1em;
+  color: transparent;
+}
+
+#boton-nueva-entrada{
+  background-color: deepskyblue !important;
+}
+
+#boton-nueva-entrada:hover{
+  background-color: #2b2b2b !important;
+}
+
+#simbolo-confirmado{
+  color: green;
+}
+
+#simbolo-rechazado{
+  color: red;
+}
+
+
+/**FORMULARIO NUEVA ENTRADA***************************************/
+.form-nueva-entrada{
+  background-color: floralWhite;
+  padding: 2em;
+}
+
+/*Vista de BUSQUEDA**********************************************/
+#resultados{
+  background-color: floralWhite;
+}
+
+/**CALCULADORA*/
+.numero{
+  font-size: 2em;
+  margin: 0.2em;
+	width:3em;
+	height:3em;
+}
+
+table{
+	margin:auto;
+}
+
+.color_display{
+	height:30px;
+	background-color:#000000;
+	border:medium #FFFFFF;
+	font: "Space Age" !important;
+	color:#00FF00;
+	font-size:4em;
+	text-align:right;
+	padding:1em;
+}
+
+.calc{
+  padding: 1em;
+}
+
+#calculadora{
+  visibility: hidden;
+}
