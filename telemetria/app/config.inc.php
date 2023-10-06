@@ -42,7 +42,8 @@
   // define("SERVIDOR", "http://localhost/telemetria");
   //define("SERVIDOR", "http://garre-cloros.esy.es/telemetria");
   // define("SERVIDOR", "http://garre-cl.tech/telemetria");
-  define("SERVIDOR", "http://aqua-cl.online/telemetria");
+  // define("SERVIDOR", "http://aqua-cl.online/telemetria");
+  define("SERVIDOR", "http://fulgen-cloros.online/telemetria");
   //define("SERVIDOR", "");
   // define("SERVIDOR", "http://192.168.1.10/telemetria");
 
@@ -77,7 +78,9 @@
 
 
   // RUTAS EXTERNAS
-  define("SERVIDOR_TELEMETRIA", "https://telemetria.mct.es/CC/");
+  // define("SERVIDOR_TELEMETRIA", "https://telemetria.mct.es/CC/");
+  // Arreglo del error del 2023/01/13
+  define("SERVIDOR_TELEMETRIA", "https://telemetria.mct.es/");
   // define("SERVIDOR_TELEMETRIA", "Pagina/");
 
   define("RUTA_CSS", SERVIDOR.'/css/');

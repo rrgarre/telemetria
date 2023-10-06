@@ -15,7 +15,8 @@ Para la operación a realizar cuando el nombre de dominio caduque:
 -Modificar el telemetria/app/config.php
 
     //HOST aqua-cl.online
-    define('NOMBRE_SERVIDOR', 'localhost');
+    //define('NOMBRE_SERVIDOR', 'localhost');
+    define('NOMBRE_SERVIDOR', '127.0.0.1');
     define('NOMBRE_USUARIO', 'u598717880_cloros');
     define('PASSWORD', 'a7asd7jKJH6');
     define('NOMBRE_BD', 'u598717880_cloros');

@@ -266,7 +266,10 @@ class Rastreador{
   // Método para sacar datos de cloro de cada pagina de deposito
   private function obtener_cloros(){
 
-    preg_match_all("/<td>((....)|(......)) ppm/is",
+    // preg_match_all("/<td>((....)|(......)) ppm/is",
+    //                     $this -> contenido_deposito,
+    //                     $datos_cloros);
+    preg_match_all("/<tr><td><b>CL(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
                         $this -> contenido_deposito,
                         $datos_cloros);
     return $datos_cloros[1];
@@ -274,7 +277,10 @@ class Rastreador{
   // Método para sacar datos de cloro de cada pagina de deposito
   private function obtener_turbis(){
 
-    preg_match_all("/<td>((....)|(......)) ntu/is",
+    // preg_match_all("/<td>((....)|(......)) ntu/is",
+    //                     $this -> contenido_deposito,
+    //                     $datos_cloros);
+    preg_match_all("/<tr><td><b>TU(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
                         $this -> contenido_deposito,
                         $datos_cloros);
     return $datos_cloros[1];
