@@ -269,7 +269,9 @@ class Rastreador{
     // preg_match_all("/<td>((....)|(......)) ppm/is",
     //                     $this -> contenido_deposito,
     //                     $datos_cloros);
-    preg_match_all("/<tr><td><b>CL(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
+    // Esta falla con TU xxx xxxx .....
+    // preg_match_all("/<tr><td><b>CL(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
+    preg_match_all("/<tr><td><b>CL(?:\s+\w+){0,3}<\/b><\/td><td>((....)|(......))/",
                         $this -> contenido_deposito,
                         $datos_cloros);
     return $datos_cloros[1];
@@ -280,7 +282,9 @@ class Rastreador{
     // preg_match_all("/<td>((....)|(......)) ntu/is",
     //                     $this -> contenido_deposito,
     //                     $datos_cloros);
-    preg_match_all("/<tr><td><b>TU(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
+    // Esta falla con TU xxx xxxx .....
+    // preg_match_all("/<tr><td><b>TU(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
+    preg_match_all("/<tr><td><b>TU(?:\s+\w+){0,3}<\/b><\/td><td>((....)|(......))/",
                         $this -> contenido_deposito,
                         $datos_cloros);
     return $datos_cloros[1];
