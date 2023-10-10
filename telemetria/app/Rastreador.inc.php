@@ -271,7 +271,9 @@ class Rastreador{
     //                     $datos_cloros);
     // Esta falla con TU xxx xxxx .....
     // preg_match_all("/<tr><td><b>CL(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
-    preg_match_all("/<tr><td><b>CL(?:\s+\w+){0,3}<\/b><\/td><td>((....)|(......))/",
+    // Aqui fallan las tildes como caracteres especiales
+    // preg_match_all("/<tr><td><b>CL(?:\s+\w+){0,3}<\/b><\/td><td>((....)|(......))/",
+    preg_match_all("/<tr><td><b>CL(?:\s+[\p{L}\w]+){0,3}<\/b><\/td><td>((....)|(......))/u",
                         $this -> contenido_deposito,
                         $datos_cloros);
     return $datos_cloros[1];
@@ -284,7 +286,9 @@ class Rastreador{
     //                     $datos_cloros);
     // Esta falla con TU xxx xxxx .....
     // preg_match_all("/<tr><td><b>TU(?:\s+\w+)?<\/b><\/td><td>((....)|(......))/",
-    preg_match_all("/<tr><td><b>TU(?:\s+\w+){0,3}<\/b><\/td><td>((....)|(......))/",
+    // Aqui fallan las tildes como caracteres especiales
+    // preg_match_all("/<tr><td><b>TU(?:\s+\w+){0,3}<\/b><\/td><td>((....)|(......))/",
+    preg_match_all("/<tr><td><b>TU(?:\s+[\p{L}\w]+){0,3}<\/b><\/td><td>((....)|(......))/u",
                         $this -> contenido_deposito,
                         $datos_cloros);
     return $datos_cloros[1];
